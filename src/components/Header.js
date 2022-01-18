@@ -81,8 +81,6 @@ const StyledHeader = styled.div`
 
       img {
         height: 20px;
-        filter: invert(29%) sepia(0%) saturate(3093%) hue-rotate(5deg)
-          brightness(88%) contrast(77%);
       }
 
       input[type="text"] {
@@ -110,10 +108,11 @@ const StyledHeader = styled.div`
 
       button {
         border-radius: 6px;
-        padding: 0 16px;
+        padding: 0 18px;
         cursor: pointer;
         font-weight: 600;
         transition: all 0.4 ease-in-out;
+        font-size: 14px;
 
         &.toggle {
           padding: 0 10px;

@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import LeftSidebar from "./LeftSidebar";
+import MainContent from "./MainContent";
+import RightSidebar from "./RightSidebar";
 
 const Main = () => {
   return (
     <StyledMain>
-      <h2>Main Content</h2>
+      <LeftSidebar />
+      <MainContent />
+      <RightSidebar />
     </StyledMain>
   );
 };
@@ -16,4 +21,6 @@ const StyledMain = styled.div`
   min-height: 100vh;
   background-color: #fbf9f7;
   padding: 20px 35px;
+  display: flex;
+  justify-content: space-between;
 `;
