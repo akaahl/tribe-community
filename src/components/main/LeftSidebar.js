@@ -3,10 +3,14 @@ import styled from "styled-components";
 import HomeIcon from "../../assets/icons/home-icon.svg";
 import SpacesIcon from "../../assets/icons/spaces-icon.svg";
 import ChevronIcon from "../../assets/icons/chevron-icon.svg";
+import { useSelector } from "react-redux";
 
 const LeftSidebar = () => {
+  const stickySidebar = useSelector(
+    (state) => state.toggleReducers.stickySidebars
+  );
   return (
-    <StyledSidebar>
+    <StyledSidebar stickySidebar={stickySidebar}>
       <a href="/" className="home-link">
         <img src={HomeIcon} alt="home" />
         <span>Home</span>
@@ -67,7 +71,7 @@ export default LeftSidebar;
 const StyledSidebar = styled.aside`
   flex: 0.3;
   align-self: flex-start;
-  position: sticky;
+  position: ${({ stickySidebar }) => (stickySidebar ? "sticky" : "static")};
   top: 85px;
 
   a {

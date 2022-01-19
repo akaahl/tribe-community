@@ -1,9 +1,17 @@
+import { useState } from "react";
 import styled from "styled-components";
-import Logo from "../assets/images/Logo.png";
-import magnifyingIcon from "../assets/icons/magnifying-icon.svg";
+import Logo from "../../assets/images/Logo.png";
+import magnifyingIcon from "../../assets/icons/magnifying-icon.svg";
 import { VscSettings } from "react-icons/vsc";
+import ToggleModal from "./ToggleModal";
 
 const Header = () => {
+  const [modal, setModal] = useState(true);
+
+  const handleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <StyledHeader>
       <div className="left">
@@ -21,8 +29,9 @@ const Header = () => {
 
       <div className="right">
         <div className="buttons-wrapper">
-          <button className="toggle">
+          <button className="toggle" onClick={handleModal}>
             <VscSettings />
+            {modal && <ToggleModal />}
           </button>
           <button className="login">Log in</button>
           <button className="sign-up">Sign up</button>
@@ -118,12 +127,17 @@ const StyledHeader = styled.div`
         transition: background-color 0.2 ease-in-out !important;
         font-size: 14px;
 
+        &:hover {
+          background-color: #f3f3f3;
+        }
+
         &.toggle {
           padding: 0 10px;
           background-color: #ffffff;
           border: 1px solid rgba(0, 0, 0, 0.18);
           display: grid;
           place-items: center;
+          position: relative;
 
           &:hover {
             background-color: #f3f3f3;

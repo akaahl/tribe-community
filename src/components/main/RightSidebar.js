@@ -154,8 +154,10 @@ const StyledSidebar = styled.aside`
     background-color: #ffffff;
     width: 100%;
     border-radius: 8px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08), -1px 0 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08),
+      -5px -5px 50px rgba(0, 0, 0, 0.08);
     padding: 25px;
+    /* z-index: 100; */
 
     h4 {
       font-size: 20px;
