@@ -84,7 +84,6 @@ const StyledHeader = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
-    /* margin-right: 20px; */
 
     a {
       display: grid;

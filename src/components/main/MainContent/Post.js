@@ -75,7 +75,6 @@ const StyledPost = styled.section`
 
   .top-section {
     display: flex;
-    /* align-items: center; */
 
     .user-avatar {
       height: 50px;

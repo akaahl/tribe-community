@@ -170,9 +170,8 @@ const StyledSidebar = styled.aside`
     width: 100%;
     border-radius: 8px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08),
-      -5px -5px 50px rgba(0, 0, 0, 0.08);
+      -1px -1px 1px rgba(0, 0, 0, 0.03);
     padding: 25px;
-    /* z-index: 100; */
 
     h4 {
       font-size: 20px;
@@ -231,7 +230,8 @@ const StyledSidebar = styled.aside`
     margin-top: 20px;
     border-radius: 8px;
     padding: 25px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08), -1px 0 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08),
+      -1px -1px 1px rgba(0, 0, 0, 0.03);
 
     h4 {
       font-size: 24px;
@@ -318,7 +318,6 @@ const StyledSidebar = styled.aside`
             display: none;
             height: 20px;
             width: 20px;
-            /* justify-self: flex-end; */
             margin: 0 0 0 auto;
             transition: display 0.2s ease-in-out;
           }

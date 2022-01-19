@@ -111,7 +111,6 @@ const StyledSidebar = styled.aside`
 
     img {
       height: 24px;
-      /* width: 25px; */
     }
 
     span {
