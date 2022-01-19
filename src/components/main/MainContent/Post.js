@@ -5,17 +5,17 @@ import likeIcon from "../../../assets/icons/like-icon.svg";
 import bellIcon from "../../../assets/icons/bell-icon.svg";
 import shareIcon from "../../../assets/icons/share-icon.svg";
 
-const Post = () => {
+const Post = ({ initials, name }) => {
   return (
     <StyledPost>
       <div className="top-section">
         <div className="user-avatar">
-          <span>S.L</span>
+          <span>{initials}</span>
         </div>
 
         <div className="user-details">
           <div className="top">
-            <h5>Streaky Ltd</h5>
+            <h5>{name}</h5>
             <img src={rightChevron} alt="right chevron" />
             <p>Categories</p>
           </div>
@@ -50,6 +50,14 @@ const Post = () => {
             <img src={shareIcon} alt="share post" />
             <span>Share</span>
           </button>
+        </div>
+
+        <div className="primary-user-input">
+          <div className="primary-user-avatar">
+            <span>G</span>
+          </div>
+
+          <input type="text" placeholder="What are your thoughts?" />
         </div>
       </div>
     </StyledPost>
@@ -175,6 +183,47 @@ const StyledPost = styled.section`
           color: #515151;
           font-size: 14px;
           font-weight: 600;
+        }
+      }
+    }
+
+    .primary-user-input {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+
+      .primary-user-avatar {
+        height: 50px;
+        width: 55px;
+        border-radius: 50%;
+        background-color: #e8e8e8;
+        display: grid;
+        place-items: center;
+        margin-right: 15px;
+
+        span {
+          color: #515151;
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+
+      input[type="text"] {
+        width: 100%;
+        background-color: #f3f3f3;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        color: #515151;
+        font-size: 16px;
+
+        &::placeholder {
+          color: #515151;
+        }
+
+        &:focus {
+          background-color: #ffffff;
         }
       }
     }

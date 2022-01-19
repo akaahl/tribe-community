@@ -13,7 +13,10 @@ const MainContent = () => {
         <input type="text" placeholder="What's on your mind?" />
       </header>
 
-      <Post />
+      <Post initials="S.K" name="Streaky Ltd" />
+      <Post initials="A.B" name="Annie Bacon" />
+      <Post initials="J.A" name="Javier Alaves" />
+      <Post initials="S.S" name="Sid Says" />
     </StyledMainContent>
   );
 };
