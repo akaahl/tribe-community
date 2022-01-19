@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Post from "./Post";
 
 const MainContent = () => {
   return (
@@ -12,17 +13,7 @@ const MainContent = () => {
         <input type="text" placeholder="What's on your mind?" />
       </header>
 
-      <section>
-        <h4>Sample placeholder</h4>
-      </section>
-
-      <section>
-        <h4>Sample placeholder</h4>
-      </section>
-
-      <section>
-        <h4>Sample placeholder</h4>
-      </section>
+      <Post />
     </StyledMainContent>
   );
 };
@@ -72,12 +63,5 @@ const StyledMainContent = styled.main`
         background-color: #ffffff;
       }
     }
-  }
-
-  section {
-    margin-top: 40px;
-    background-color: lightgray;
-    height: 50vh;
-    border-radius: 8px;
   }
 `;

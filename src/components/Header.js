@@ -35,8 +35,8 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled.div`
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   background-color: #ffffff;
   z-index: 1;
   width: 100%;

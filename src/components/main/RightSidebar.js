@@ -129,14 +129,16 @@ const StyledSidebar = styled.aside`
   top: 85px;
   height: 100vh;
   padding-bottom: 100px;
-  transition: overflow-y 0.2s ease-in-out;
+  overflow-y: overlay;
 
   &:hover {
-    overflow-y: overlay;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 0;
   }
 
   ::-webkit-scrollbar-track {

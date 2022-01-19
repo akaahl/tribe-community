@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LeftSidebar from "./LeftSidebar";
-import MainContent from "./MainContent";
+import MainContent from "./MainContent/MainContent.js";
 import RightSidebar from "./RightSidebar";
 
 const Main = () => {
