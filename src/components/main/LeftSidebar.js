@@ -9,8 +9,19 @@ const LeftSidebar = () => {
   const stickySidebar = useSelector(
     (state) => state.toggleReducers.stickySidebars
   );
+
+  const stickyHeader = useSelector(
+    (state) => state.toggleReducers.stickyHeader
+  );
+
+  const headerHeight = useSelector((state) => state.headerHeight);
+
   return (
-    <StyledSidebar stickySidebar={stickySidebar}>
+    <StyledSidebar
+      stickySidebar={stickySidebar}
+      headerHeight={headerHeight}
+      stickyHeader={stickyHeader}
+    >
       <a href="/" className="home-link">
         <img src={HomeIcon} alt="home" />
         <span>Home</span>
@@ -72,7 +83,8 @@ const StyledSidebar = styled.aside`
   flex: 0.3;
   align-self: flex-start;
   position: ${({ stickySidebar }) => (stickySidebar ? "sticky" : "static")};
-  top: 85px;
+  top: ${({ headerHeight, stickyHeader }) =>
+    stickyHeader ? `calc(${headerHeight}px + 20px)` : "85px"};
 
   a {
     display: flex;
@@ -157,5 +169,9 @@ const StyledSidebar = styled.aside`
         color: #1e1e1e;
       }
     }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;

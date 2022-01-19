@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { adjustHeaderHeight } from "../../actions/headerActions";
 import { toggleHeader, toggleSidebars } from "../../actions/toggleActions";
 
 const ToggleModal = () => {
   const dispatch = useDispatch();
+  const headerHeight = useSelector((state) => state.headerHeight);
   const stickyHeader = useSelector(
     (state) => state.toggleReducers.stickyHeader
   );
@@ -22,8 +24,13 @@ const ToggleModal = () => {
       dispatch(toggleSidebars());
     }
   };
-  console.log(stickyHeader, "header");
-  console.log(stickySidebars, "sidebars");
+
+  const handleHeaderHeight = (e) => {
+    const height = e.target.value;
+    if (+height < 65 || isNaN(+height)) return;
+
+    dispatch(adjustHeaderHeight(height));
+  };
 
   return (
     <StyledToggleModal onClick={(e) => e.stopPropagation()}>
@@ -58,6 +65,17 @@ const ToggleModal = () => {
 
         <p>Sticky Sidebars</p>
       </div>
+
+      <div className="header-height">
+        <input
+          type="text"
+          name="height"
+          id="height"
+          onChange={handleHeaderHeight}
+          placeholder={`${headerHeight}px`}
+        />
+        <label htmlFor="height">Header Height (px)</label>
+      </div>
     </StyledToggleModal>
   );
 };
@@ -67,7 +85,7 @@ export default ToggleModal;
 const StyledToggleModal = styled.div`
   position: absolute;
   top: 130%;
-  width: 200px;
+  width: 250px;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -134,7 +152,7 @@ const StyledToggleModal = styled.div`
     }
 
     p {
-      margin-left: 12px;
+      margin-left: 40px;
       color: #515151;
       line-height: 100%;
     }
@@ -142,5 +160,27 @@ const StyledToggleModal = styled.div`
 
   .sidebars-toggle {
     margin-top: 10px;
+  }
+
+  .header-height {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+
+    input[type="text"] {
+      width: 60px;
+      height: 30px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      outline: none;
+      font-weight: 600;
+      color: #515151;
+    }
+
+    label {
+      margin-left: 20px;
+      color: #515151;
+    }
   }
 `;

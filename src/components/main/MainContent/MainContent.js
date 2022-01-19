@@ -67,4 +67,8 @@ const StyledMainContent = styled.main`
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    flex: 1;
+  }
 `;

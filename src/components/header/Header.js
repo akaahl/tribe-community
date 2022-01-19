@@ -4,16 +4,38 @@ import Logo from "../../assets/images/Logo.png";
 import magnifyingIcon from "../../assets/icons/magnifying-icon.svg";
 import { VscSettings } from "react-icons/vsc";
 import ToggleModal from "./ToggleModal";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [modal, setModal] = useState(true);
+  const stickyHeader = useSelector(
+    (state) => state.toggleReducers.stickyHeader
+  );
 
-  const handleModal = () => {
-    setModal(!modal);
+  const headerHeight = useSelector((state) => state.headerHeight);
+
+  const [modal, setModal] = useState(false);
+
+  const closeToggleModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setModal(false);
+    document.removeEventListener("click", closeToggleModal);
+  };
+
+  const handleModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!modal) {
+      setModal(true);
+      document.addEventListener("click", closeToggleModal);
+    } else {
+      setModal(false);
+    }
   };
 
   return (
-    <StyledHeader>
+    <StyledHeader stickyHeader={stickyHeader} headerHeight={headerHeight}>
       <div className="left">
         <a href="/">
           <img src={Logo} alt="campfire" />
@@ -44,12 +66,12 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled.div`
-  /* position: sticky;
-  top: 0; */
+  position: ${({ stickyHeader }) => (stickyHeader ? "sticky" : "static")};
+  top: 0;
   background-color: #ffffff;
   z-index: 1;
   width: 100%;
-  height: 65px;
+  height: ${({ headerHeight }) => `${headerHeight}px`};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,6 +194,12 @@ const StyledHeader = styled.div`
           }
         }
       }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .center {
+      display: none;
     }
   }
 `;

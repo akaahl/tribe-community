@@ -1,10 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import rightChevronIcon from "../../assets/icons/right-chevron-thin.svg";
+import { useSelector } from "react-redux";
 
 const RightSidebar = () => {
+  const stickyHeader = useSelector(
+    (state) => state.toggleReducers.stickyHeader
+  );
+  const stickySidebar = useSelector(
+    (state) => state.toggleReducers.stickySidebars
+  );
+
+  const headerHeight = useSelector((state) => state.headerHeight);
+
   return (
-    <StyledSidebar>
+    <StyledSidebar
+      stickySidebar={stickySidebar}
+      stickyHeader={stickyHeader}
+      headerHeight={headerHeight}
+    >
       <div className="top-section">
         <h4>Good morning 👋</h4>
         <p>Welcome to Tribe Campfire</p>
@@ -125,11 +139,12 @@ export default RightSidebar;
 const StyledSidebar = styled.aside`
   flex: 0.3;
   align-self: flex-start;
-  position: sticky;
-  top: 85px;
+  position: ${({ stickySidebar }) => (stickySidebar ? "sticky" : "static")};
+  top: ${({ stickyHeader, headerHeight }) =>
+    stickyHeader ? `calc(${headerHeight}px + 20px)` : "65px"};
   height: 100vh;
   padding-bottom: 100px;
-  overflow-y: overlay;
+  overflow-y: ${({ stickySidebar }) => (stickySidebar ? "overlay" : "initial")};
 
   &:hover {
     ::-webkit-scrollbar {
@@ -310,5 +325,9 @@ const StyledSidebar = styled.aside`
         }
       }
     }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
