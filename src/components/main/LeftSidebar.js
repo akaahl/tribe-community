@@ -66,6 +66,9 @@ export default LeftSidebar;
 
 const StyledSidebar = styled.aside`
   flex: 0.3;
+  align-self: flex-start;
+  position: sticky;
+  top: 85px;
 
   a {
     display: flex;
@@ -74,6 +77,7 @@ const StyledSidebar = styled.aside`
     padding: 8px;
     border-radius: 6px;
     transition: background-color 0.1s ease-in-out;
+    color: #1e1e1e;
 
     &.home-link {
       background-color: #e5e3e1;

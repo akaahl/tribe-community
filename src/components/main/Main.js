@@ -18,9 +18,11 @@ export default Main;
 
 const StyledMain = styled.div`
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #fbf9f7;
   padding: 20px 35px;
   display: flex;
   justify-content: space-between;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr); */
 `;

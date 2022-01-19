@@ -20,7 +20,7 @@ const Header = () => {
       </div>
 
       <div className="right">
-        <div className="buttons">
+        <div className="buttons-wrapper">
           <button className="toggle">
             <VscSettings />
           </button>
@@ -35,6 +35,10 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled.div`
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 1;
   width: 100%;
   height: 65px;
   display: flex;
@@ -102,7 +106,7 @@ const StyledHeader = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    .buttons {
+    .buttons-wrapper {
       height: 60%;
       display: flex;
 
@@ -111,7 +115,7 @@ const StyledHeader = styled.div`
         padding: 0 18px;
         cursor: pointer;
         font-weight: 600;
-        transition: all 0.4 ease-in-out;
+        transition: background-color 0.2 ease-in-out !important;
         font-size: 14px;
 
         &.toggle {
