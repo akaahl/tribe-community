@@ -22,4 +22,8 @@ const StyledMain = styled.div`
   padding: 20px 35px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
 `;

@@ -2,9 +2,11 @@ import { useState } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/images/Logo.png";
 import magnifyingIcon from "../../assets/icons/magnifying-icon.svg";
+import hamburgerIcon from "../../assets/icons/hamburger-icon.svg";
 import { VscSettings } from "react-icons/vsc";
 import ToggleModal from "./ToggleModal";
 import { useSelector } from "react-redux";
+import MobileNav from "../mobile/MobileNav";
 
 const Header = () => {
   const stickyHeader = useSelector(
@@ -14,6 +16,7 @@ const Header = () => {
   const headerHeight = useSelector((state) => state.headerHeight);
 
   const [modal, setModal] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
 
   const closeToggleModal = (e) => {
     e.preventDefault();
@@ -34,9 +37,22 @@ const Header = () => {
     }
   };
 
+  const handleMobileNav = () => {
+    setMobileNav(true);
+    document.body.style.overflowY = "hidden";
+  };
+
   return (
     <StyledHeader stickyHeader={stickyHeader} headerHeight={headerHeight}>
+      {mobileNav && (
+        <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
+      )}
+
       <div className="left">
+        <button onClick={handleMobileNav}>
+          <img src={hamburgerIcon} alt="hamburger" />
+        </button>
+
         <a href="/">
           <img src={Logo} alt="campfire" />
         </a>
@@ -84,6 +100,19 @@ const StyledHeader = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
+
+    button {
+      display: none !important;
+      width: 35px;
+      border-radius: 6px;
+      background-color: #ffffff;
+      border: none;
+      display: grid;
+      place-items: center;
+      margin-right: 15px;
+      margin-bottom: 3px;
+      cursor: pointer;
+    }
 
     a {
       display: grid;
@@ -197,6 +226,14 @@ const StyledHeader = styled.div`
   }
 
   @media (max-width: 1024px) {
+    padding: 0 20px;
+
+    .left {
+      button {
+        display: block !important;
+      }
+    }
+
     .center {
       display: none;
     }

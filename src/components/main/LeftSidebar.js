@@ -158,6 +158,11 @@ const StyledSidebar = styled.aside`
           width: 100%;
           object-fit: cover;
           transform: rotate(-90deg);
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: rotate(0deg);
+          }
         }
       }
 

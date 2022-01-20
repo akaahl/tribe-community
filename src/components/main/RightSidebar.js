@@ -71,6 +71,8 @@ const RightSidebar = () => {
                 <span>S</span>
               </div>
               <span>Siavash</span>
+
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -79,6 +81,7 @@ const RightSidebar = () => {
                 <span>S.S</span>
               </div>
               <span>Sid Says</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -87,6 +90,7 @@ const RightSidebar = () => {
                 <span>P</span>
               </div>
               <span>Preetish</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -95,6 +99,7 @@ const RightSidebar = () => {
                 <span>C.V</span>
               </div>
               <span>C.J Verma</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -103,6 +108,7 @@ const RightSidebar = () => {
                 <span>S</span>
               </div>
               <span>Shanny</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -111,6 +117,7 @@ const RightSidebar = () => {
                 <span>F</span>
               </div>
               <span>Flip</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -119,6 +126,7 @@ const RightSidebar = () => {
                 <span>J.A</span>
               </div>
               <span>Javier Alaves</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -127,6 +135,7 @@ const RightSidebar = () => {
                 <span>D.G</span>
               </div>
               <span>Dan Guzon</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
 
             <li>
@@ -135,6 +144,7 @@ const RightSidebar = () => {
                 <span>A.D</span>
               </div>
               <span>Ari Diamond</span>
+              <img src={rightChevronIcon} alt="right chevron" />
             </li>
           </ul>
         </div>
@@ -291,7 +301,8 @@ const StyledSidebar = styled.aside`
             background-color: #f3f3f3;
 
             img {
-              display: flex;
+              visibility: visible;
+              transform: translateX(0);
             }
           }
 
@@ -324,11 +335,12 @@ const StyledSidebar = styled.aside`
           }
 
           img {
-            display: none;
+            transform: translateX(-10px);
+            visibility: hidden;
             height: 20px;
             width: 20px;
             margin: 0 0 0 auto;
-            transition: display 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
           }
         }
       }
