@@ -200,5 +200,9 @@ const StyledHeader = styled.div`
     .center {
       display: none;
     }
+
+    .right {
+      flex: auto;
+    }
   }
 `;

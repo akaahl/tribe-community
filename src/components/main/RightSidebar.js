@@ -13,6 +13,8 @@ const RightSidebar = () => {
 
   const headerHeight = useSelector((state) => state.headerHeight);
 
+  const hour = new Date().getHours();
+
   return (
     <StyledSidebar
       stickySidebar={stickySidebar}
@@ -20,7 +22,14 @@ const RightSidebar = () => {
       headerHeight={headerHeight}
     >
       <div className="top-section">
-        <h4>Good morning 👋</h4>
+        <h4>
+          {hour > 0 && hour < 12
+            ? "Good morning"
+            : hour > 12 && hour < 18
+            ? "Good afternoon"
+            : "Good evening"}{" "}
+          👋
+        </h4>
         <p>Welcome to Tribe Campfire</p>
         <p>
           Connect, share, and engage with community and build relationships.
